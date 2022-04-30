@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kopdig/modules/register/screen/register_screen.dart';
+import 'package:kopdig/modules/auth/bloc/auth_bloc.dart';
+import 'package:kopdig/modules/auth/bloc/auth_event.dart';
+import 'package:kopdig/modules/auth/helper/auth_delegate.dart';
+import 'package:kopdig/modules/auth/register/screen/register_screen.dart';
 import 'package:kopdig/ui/component/button/button_kopdig_primary.dart';
+import 'package:kopdig/ui/component/dialog/dialog_component.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,14 +14,16 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreen> implements AuthDelegate {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _passwordVisible = true;
+  late AuthBloc _bloc;
 
   @override
   void initState() {
     super.initState();
+    _bloc = AuthBloc();
     _passwordVisible = false;
   }
 
@@ -68,7 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   context: context,
                   text: 'Masuk',
                   isEnabled: true,
-                  onPressed: () async {},
+                  onPressed: () async {
+                    _loginUser();
+                  },
                 ),
                 _buildDivider(),
                 _buildOtherLoginMethodsSection(),
@@ -150,6 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: TextField(
             showCursor: true,
             controller: _emailController,
+            keyboardType: TextInputType.emailAddress,
             cursorColor: Colors.black45,
             decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
@@ -245,10 +254,48 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildTextInputHint(String text){
+  Widget _buildTextInputHint(String text) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 15, 4),
-      child: Text(text, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+      ),
     );
+  }
+
+  void _loginUser() {
+    _bloc.add(LoginUser(
+        email: _emailController.value.text,
+        password: _passwordController.value.text,
+        delegate: this));
+  }
+
+  @override
+  void onError(String message) {
+    showFailedDialog(context: context, title: "Gagal Login", message: message);
+  }
+
+  @override
+  void onSuccess() {
+    showSuccessDialog(
+        context: context,
+        title: "Berhasil Login!",
+        message: "Selamat datang di aplikasi Kopdig",
+        onTap: () {
+          print("SIAPPP");
+          Navigator.pop(context);
+        });
+  }
+
+  @override
+  void onLoading() {
+    showLoadingDialog(context: context);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _bloc.close();
   }
 }
