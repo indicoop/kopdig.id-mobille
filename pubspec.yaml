@@ -46,10 +46,13 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
   google_fonts: 2.2.0
-  get: ^4.6.1
+  flutter_bloc: ^8.0.1
   lottie: ^1.2.1
   http: ^0.13.3
   flutter_svg: ^1.0.0
+  logger:
+  flutter_secure_storage:
+  cool_alert: ^1.1.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
