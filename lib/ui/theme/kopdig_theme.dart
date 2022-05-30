@@ -39,12 +39,22 @@ class KopdigTheme {
   static TextStyle get text => GoogleFonts.getFont(poppins,
       color: KopdigTheme.greydark, fontWeight: FontWeight.w400, fontSize: 16);
 
+  static TextStyle get bodyText => GoogleFonts.getFont(poppins,
+      color: KopdigTheme.greydark, fontWeight: FontWeight.w400, fontSize: 16);
+
   static TextStyle get title1 => GoogleFonts.getFont(
         poppins,
         color: Colors.black,
         fontWeight: FontWeight.w600,
         fontSize: 16,
       );
+
+  static TextStyle get subTitle => GoogleFonts.getFont(
+    poppins,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+  );
 
   static TextStyle get text1 => GoogleFonts.getFont(poppins,
       color: Colors.black, fontWeight: FontWeight.w400, fontSize: 14);

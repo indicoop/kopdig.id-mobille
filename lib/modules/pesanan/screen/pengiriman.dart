@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
-import 'package:timelines/timelines.dart';
 
 class Pengiriman extends StatefulWidget{
 const Pengiriman ({Key? key}) : super(key: key);
