@@ -298,30 +298,6 @@ class _RegisterScreenState extends State<RegisterScreen>
               ),
             ),
           ),
-          _buildTextInputHint("Nomor Kartu Kredit"),
-          Container(
-            padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
-            child: TextFormField(
-              showCursor: true,
-              validator: (value) => value == null || value.isEmpty
-                  ? "Masukkan Kartu Kredit"
-                  : null,
-              controller: _creditCardController,
-              keyboardType: TextInputType.number,
-              cursorColor: Colors.black45,
-              decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: Colors.black45,
-                    ),
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  hintStyle: const TextStyle(fontSize: 16, color: Colors.grey)),
-            ),
-          ),
           _buildTextInputHint("No Telfon"),
           Container(
             padding: const EdgeInsets.fromLTRB(15, 8, 15, 8),
@@ -391,7 +367,7 @@ class _RegisterScreenState extends State<RegisterScreen>
       "email": _emailController.value.text,
       "password": _passwordController.value.text,
       "role_id": "1",
-      "credit_card_number": _creditCardController.value.text,
+      "credit_card_number": "0",
       "phone_number": _phoneNumberController.value.text,
       "gender": _selectedGender,
       "address": _addressController.value.text,

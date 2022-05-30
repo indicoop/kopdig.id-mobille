@@ -23,7 +23,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         }
       } catch (ex) {
         _delegate.onError("Terjadi kesalahan : $ex");
-        // emit(ShowErrorRegister());
       }
     });
 
