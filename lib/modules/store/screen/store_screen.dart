@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kopdig/modules/store/widget/BuildListProduct.dart';
 import 'package:kopdig/modules/store/widget/BuildStoreCard.dart';
+import 'package:kopdig/ui/theme/kopdig_theme.dart';
 
 class StoreScreen extends StatefulWidget {
   const StoreScreen({Key? key}) : super(key: key);
@@ -21,11 +23,29 @@ class _StoreScreenState extends State<StoreScreen> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(height: 16,),
-            BuildStoreCard()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const SizedBox(height: 16,),
+              BuildStoreCard(),
+              const SizedBox(height: 16,),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text("Mungkin kamu suka", style: KopdigTheme.title1),
+              ),
+              BuildListProduct(),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, top: 18),
+                child: Text("Terlaris", style: KopdigTheme.title1),
+              ),
+              BuildListProduct(),
+              const SizedBox(height: 16,),
+
+            ],
+          ),
         ),
       ),
     );

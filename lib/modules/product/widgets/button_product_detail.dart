@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
 
 class ButtonProductDetail extends StatelessWidget {
-  const ButtonProductDetail({Key? key}) : super(key: key);
+  final Function() onTapBuyNow;
+  const ButtonProductDetail({Key? key, required this.onTapBuyNow}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ButtonProductDetail extends StatelessWidget {
             ),
             InkWell(onTap: () {}, child: const Icon(Icons.shopping_cart_outlined, size: 35, color: KopdigTheme.primaryColorLighter,)),
             InkWell(
-              onTap: () {},
+              onTap: onTapBuyNow,
               child: Container(
                 height: 70,
                 width: 180,

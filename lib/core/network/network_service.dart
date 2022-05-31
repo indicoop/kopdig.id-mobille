@@ -11,8 +11,7 @@ const BASE_URL = 'https://dc13-125-166-119-191.ap.ngrok.io';
 abstract class NetworkService {
   final logger = Logger(printer: PrettyPrinter());
 
-  Future<dynamic> getMethod(String endPoint,
-      [Map<String, String>? headers]) async {
+  Future<dynamic> getMethod(String endPoint, Map<String, String>? headers) async {
     try {
       final response = await http.get(Uri.parse(endPoint), headers: headers);
       var res = json.decode(response.body);
