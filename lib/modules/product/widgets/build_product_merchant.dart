@@ -5,7 +5,7 @@ import 'package:kopdig/ui/theme/kopdig_theme.dart';
 String image =
     "https://awsimages.detik.net.id/community/media/visual/2022/03/15/kenapa-logo-halal-diganti-ada-perpindahan-wewenang-dari-mui-ke-kemenag.jpeg?w=650&q=80";
 
-Widget buildProductMerchant() {
+Widget buildProductMerchant(Function() onTap) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 8.0),
     decoration: BoxDecoration(
@@ -16,7 +16,7 @@ Widget buildProductMerchant() {
       mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(height: 12,),
-        _buildHeadSection(),
+        _buildHeadSection(onTap),
         SizedBox(height: 12,),
         _buildMerchantRatingSection(),
         SizedBox(height: 12,),
@@ -25,7 +25,7 @@ Widget buildProductMerchant() {
   );
 }
 
-Widget _buildHeadSection() {
+Widget _buildHeadSection(Function() onTap) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16.0),
     child: Row(
@@ -50,7 +50,7 @@ Widget _buildHeadSection() {
           ],
         ),
         const Spacer(),
-        _buildButtonMerchant()
+        _buildButtonMerchant(onTap)
         // ElevatedButton(onPressed: () {}, child: Text("Kunjungi Toko"))
       ],
     ),
@@ -96,9 +96,9 @@ Widget _buildMerchantRatingSection() {
   );
 }
 
-Widget _buildButtonMerchant(){
+Widget _buildButtonMerchant(Function() onTap){
  return InkWell(
-   onTap: (){},
+   onTap: onTap,
    child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       decoration: BoxDecoration(

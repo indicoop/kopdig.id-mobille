@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kopdig/modules/market/screen/product_detail_screen.dart';
+import 'package:kopdig/modules/product/screen/product_detail_screen.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
 
 class MarketItem extends StatelessWidget {

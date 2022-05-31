@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kopdig/modules/market/widgets/build_product_description.dart';
-import 'package:kopdig/modules/market/widgets/build_product_merchant.dart';
-import 'package:kopdig/modules/market/widgets/build_product_ongkir.dart';
-import 'package:kopdig/modules/market/widgets/button_product_detail.dart';
-import 'package:kopdig/modules/market/widgets/product_rating.dart';
+import 'package:kopdig/modules/product/widgets/build_product_description.dart';
+import 'package:kopdig/modules/product/widgets/build_product_merchant.dart';
+import 'package:kopdig/modules/product/widgets/build_product_ongkir.dart';
+import 'package:kopdig/modules/product/widgets/button_product_detail.dart';
+import 'package:kopdig/modules/product/widgets/product_rating.dart';
+import 'package:kopdig/modules/store/screen/store_screen.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -119,7 +120,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               const SizedBox(
                 height: 12,
               ),
-              buildProductMerchant(),
+              buildProductMerchant((){
+                Navigator.push(context, MaterialPageRoute(builder: (c) => StoreScreen()));
+              }),
               const SizedBox(
                 height: 12,
               ),
