@@ -15,14 +15,14 @@ class LoginResponse {
   Data? data;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-        meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
-        data: json["data"] == null ? null : Data.fromJson(json["data"]),
-      );
+    meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
+    data: json["data"] == null ? null : Data.fromJson(json["data"]),
+  );
 
   Map<String, dynamic> toJson() => {
-        "meta": meta == null ? null : meta?.toJson(),
-        "data": data == null ? null : data?.toJson(),
-      };
+    "meta": meta == null ? null : meta?.toJson(),
+    "data": data == null ? null : data?.toJson(),
+  };
 }
 
 class Data {
@@ -39,18 +39,18 @@ class Data {
   String token;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        code: json["code"] == null ? null : json["code"],
-        user: json["user"] == null ? null : User.fromJson(json["user"]),
-        tokenType: json["token-type"] == null ? null : json["token-type"],
-        token: json["token"] == null ? null : json["token"],
-      );
+    code: json["code"] == null ? null : json["code"],
+    user: json["user"] == null ? null : User.fromJson(json["user"]),
+    tokenType: json["token-type"] == null ? null : json["token-type"],
+    token: json["token"] == null ? null : json["token"],
+  );
 
   Map<String, dynamic> toJson() => {
-        "code": code == null ? null : code,
-        "user": user == null ? null : user?.toJson(),
-        "token-type": tokenType == null ? null : tokenType,
-        "token": token == null ? null : token,
-      };
+    "code": code == null ? null : code,
+    "user": user == null ? null : user?.toJson(),
+    "token-type": tokenType == null ? null : tokenType,
+    "token": token == null ? null : token,
+  };
 }
 
 class User {

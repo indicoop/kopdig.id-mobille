@@ -13,6 +13,8 @@ class KopdigTheme {
   static const Color greydark = Color(0xFF504F5E);
   static const Color fieldColor = Color(0xFFF3F2F2);
   static const Color alert = Color(0xffED6363);
+  static const Color whitegrey = Color(0xffE8E5E5);
+  static const Color yellowStar = Color(0xffFCAE03);
 
   static TextStyle get primaryTextStyle => GoogleFonts.getFont(
         poppins,
@@ -47,7 +49,14 @@ class KopdigTheme {
         color: Colors.black,
         fontWeight: FontWeight.w600,
         fontSize: 16,
-      );
+  );
+
+  static TextStyle get smalltitle => GoogleFonts.getFont(
+    poppins,
+    color: Colors.black,
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+  );
 
   static TextStyle get subTitle => GoogleFonts.getFont(
     poppins,

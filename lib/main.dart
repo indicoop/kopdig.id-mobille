@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kopdig/modules/auth/login/screen/LoginScreen.dart';
 import 'package:kopdig/modules/product/screen/market_screen.dart';
 import 'package:kopdig/modules/notification/screen/notif_screen.dart';
+import 'package:kopdig/modules/profile/screen/profile_screen.dart';
+import 'package:kopdig/ui/component/navigation/bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MarketScreen()
+      home: const BottomNavigation()
     );
   }
 }

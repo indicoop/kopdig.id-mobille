@@ -1,12 +1,11 @@
 import 'dart:convert';
 
-RegisterResponse registerResponseFromJson(String str) =>
-    RegisterResponse.fromJson(json.decode(str));
+EditProfileResponse EditProfileResponseFromJson(String str) => EditProfileResponse.fromJson(json.decode(str));
 
-String registerResponseToJson(RegisterResponse data) => json.encode(data.toJson());
+String EditProfileResponseToJson(EditProfileResponse data) => json.encode(data.toJson());
 
-class RegisterResponse {
-  RegisterResponse({
+class EditProfileResponse {
+  EditProfileResponse({
     required this.meta,
     required this.data,
   });
@@ -14,7 +13,7 @@ class RegisterResponse {
   Meta? meta;
   Data? data;
 
-  factory RegisterResponse.fromJson(Map<String, dynamic> json) => RegisterResponse(
+  factory EditProfileResponse.fromJson(Map<String, dynamic> json) => EditProfileResponse(
     meta: json["meta"] == null ? null : Meta.fromJson(json["meta"]),
     data: json["data"] == null ? null : Data.fromJson(json["data"]),
   );

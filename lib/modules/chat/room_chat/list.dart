@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kopdig/modules/chat/detail_chat/detail_chat.dart';
 
 class ConversationList extends StatefulWidget{
   String name;
@@ -16,6 +17,11 @@ class _ConversationListState extends State<ConversationList> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ChatDetail()),
+        );
       },
       child: Container(
         padding: EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 10),

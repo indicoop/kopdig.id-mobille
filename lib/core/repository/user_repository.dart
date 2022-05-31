@@ -2,6 +2,7 @@ import 'package:kopdig/core/network/network_service.dart';
 import 'package:kopdig/core/network/response/auth/LoginResponse.dart';
 import 'package:kopdig/core/network/response/auth/RegisterResponse.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:kopdig/core/network/response/profile/EditProfileResponse.dart';
 
 class UserRepository extends NetworkService {
   UserRepository();
@@ -39,6 +40,18 @@ class UserRepository extends NetworkService {
   }
 
   Object readSecureData(String key) {
+    var readData = storage.read(key: key);
+    return readData;
+  }
+
+  Future<EditProfileResponse> submitEditProfile(Map<String, Object> body) async {
+    var header = {contentType: applicationJson};
+    var map = await postMethod("$BASE_URL/api/register",
+        body: body, headers: header);
+    return EditProfileResponse.fromJson(map);
+  }
+
+  Object readProfileData(String key) {
     var readData = storage.read(key: key);
     return readData;
   }
