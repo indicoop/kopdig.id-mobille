@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kopdig/core/network/response/product/product_response.dart';
 import 'package:kopdig/modules/product/widgets/build_product_description.dart';
 import 'package:kopdig/modules/product/widgets/build_product_merchant.dart';
 import 'package:kopdig/modules/product/widgets/build_product_ongkir.dart';
@@ -6,9 +7,13 @@ import 'package:kopdig/modules/product/widgets/button_product_detail.dart';
 import 'package:kopdig/modules/product/widgets/product_rating.dart';
 import 'package:kopdig/modules/store/screen/store_screen.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
+import 'package:kopdig/utils/currency_formatter.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({Key? key}) : super(key: key);
+  final Product? product;
+
+  const ProductDetailScreen({Key? key, required this.product})
+      : super(key: key);
 
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
@@ -120,13 +125,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16, 10, 0, 0),
-                child: Text('Nama',
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 24)),
+                child: Text(widget.product?.name ?? "Nama Produk",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w600, fontSize: 24)),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.only(start: 16),
-                child: Text('Rp 10.000', style: KopdigTheme.title),
+                child: Text(
+                    stringtoRupiah(widget.product?.price.toInt() ?? 0),
+                    style: KopdigTheme.title),
               ),
               const SizedBox(
                 height: 12,
@@ -150,7 +157,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
               const SizedBox(
                 height: 12,
               ),
-              BuildProductDescription(),
+              BuildProductDescription(
+                stok: widget.product?.stock ?? 0,
+                masaPenyimpanan: 3,
+                address: "Kota Bandung",
+                description: widget.product?.description ?? "",
+              ),
               const SizedBox(
                 height: 40,
               ),
@@ -187,9 +199,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      "Rp 10.000",
-                      style: KopdigTheme.title1,
-                    ),
+                      stringtoRupiah(widget.product?.price.toInt() ?? 0),
+                    style: KopdigTheme.title1,
+                  ),
                   ),
                   const Spacer(),
                   Padding(

@@ -16,7 +16,7 @@ class BuildItemProduct extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (c) => ProductDetailScreen(),
+              builder: (c) => const ProductDetailScreen(product: null,),
             ),
           );
         },

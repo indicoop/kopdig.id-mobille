@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class BuildProductDescription extends StatelessWidget {
-  const BuildProductDescription({Key? key}) : super(key: key);
+  final stok, masaPenyimpanan;
+  final String address, description;
+
+  const BuildProductDescription(
+      {Key? key,
+      required this.stok,
+      required this.masaPenyimpanan,
+      required this.address,
+      required this.description})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +31,7 @@ class BuildProductDescription extends StatelessWidget {
                 width: 200,
                 child: Text("Stok"),
               ),
-              Text("Stok"),
+              Text("$stok"),
             ],
           ),
           const SizedBox(height: 12,),
@@ -32,7 +41,7 @@ class BuildProductDescription extends StatelessWidget {
                 width: 200,
                 child: Text("Masa Penyimpanan"),
               ),
-              Text("3 Minggu"),
+              Text("$masaPenyimpanan Minggu"),
             ],
           ),
           const SizedBox(height: 12,),
@@ -42,13 +51,13 @@ class BuildProductDescription extends StatelessWidget {
                 width: 200,
                 child: Text("Dikirim dari"),
               ),
-              Text("Kota Bandung"),
+              Text("$address"),
             ],
           ),
           const SizedBox(height: 12,),
           const Text("Deskripsi"),
           const SizedBox(height: 12,),
-          Text("Beli roti lembut yang dibuat dengan 100% teknik Jepang. Roti tawar vegan ini pakai ube, ada rasa manis natural dengan warna yang gemas. Diolah tanpa telur, susu, dan butter. Kita menggunakan soy milk dan olive oil untuk adonan roti vegan. Jika pesan setelah jam 15.00, akan diproses keesokan harinya."),
+          Text(description),
 
         ],
       ),

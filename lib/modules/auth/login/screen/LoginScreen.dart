@@ -3,6 +3,7 @@ import 'package:kopdig/modules/auth/bloc/auth_bloc.dart';
 import 'package:kopdig/modules/auth/bloc/auth_event.dart';
 import 'package:kopdig/modules/auth/helper/auth_delegate.dart';
 import 'package:kopdig/modules/auth/register/screen/register_screen.dart';
+import 'package:kopdig/modules/product/screen/market_screen.dart';
 import 'package:kopdig/ui/component/button/button_kopdig_primary.dart';
 import 'package:kopdig/ui/component/dialog/dialog_component.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
@@ -285,6 +286,8 @@ class _LoginScreenState extends State<LoginScreen> implements AuthDelegate {
         onTap: () {
           print("SIAPPP");
           Navigator.pop(context);
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => MarketScreen()));
         });
   }
 
