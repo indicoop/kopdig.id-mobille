@@ -15,6 +15,8 @@ class KopdigTheme {
   static const Color alert = Color(0xffED6363);
   static const Color whitegrey = Color(0xffE8E5E5);
   static const Color yellowStar = Color(0xffFCAE03);
+  static const Color backgroundcheckoutpage = Color(0xffE7E7E7);
+  static const Color borderColor = Color(0xFFCECECE);
 
   static TextStyle get primaryTextStyle => GoogleFonts.getFont(
         poppins,
