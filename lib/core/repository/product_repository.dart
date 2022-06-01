@@ -18,7 +18,7 @@ class ProductRepository extends NetworkService {
 
   Future<List<Product>> getProducts(String token) async {
     var header = {contentType: applicationJson, 'Authorization': token};
-    var map = await getMethod("$BASE_URL/api/login", header);
+    var map = await getMethod("$BASE_URL/api/all-products", header);
 
     return ProductResponse.fromJson(map).data?.first.products ?? [];
   }

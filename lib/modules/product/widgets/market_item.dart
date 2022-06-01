@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kopdig/core/network/response/product/product_response.dart';
 import 'package:kopdig/modules/product/screen/product_detail_screen.dart';
 import 'package:kopdig/ui/theme/kopdig_theme.dart';
+import 'package:kopdig/utils/currency_formatter.dart';
 
 class MarketItem extends StatelessWidget {
-  const MarketItem({Key? key}) : super(key: key);
+  final Product product;
+  const MarketItem({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class MarketItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                'https://ekrutassets.s3.ap-southeast-1.amazonaws.com/blogs/images/000/004/998/original/H1.jpg',
+                product.thumbnail,
                 width: double.infinity,
                 height: 120,
                 fit: BoxFit.cover,
@@ -41,36 +44,36 @@ class MarketItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'nama Produk',
+                      product.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: KopdigTheme.subTitle,
                     ),
-                    Text('*nama Koperasi',
+                    Text('*Koperasi Jiwa',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: KopdigTheme.bodyText),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on,
-                          color: Colors.redAccent,
-                        ),
-                        Text('Bondowoso', style: KopdigTheme.bodyText),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        Text('5.0', style: KopdigTheme.bodyText),
-                      ],
-                    ),
+                    // Row(
+                    //   children: [
+                    //     const Icon(
+                    //       Icons.location_on,
+                    //       color: Colors.redAccent,
+                    //     ),
+                    //     Text('Bondowoso', style: KopdigTheme.bodyText),
+                    //   ],
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     const Icon(
+                    //       Icons.star,
+                    //       color: Colors.amber,
+                    //     ),
+                    //     Text('5.0', style: KopdigTheme.bodyText),
+                    //   ],
+                    // ),
                     Align(
                         alignment: Alignment.centerRight,
-                        child: Text('Rp 2000', style: KopdigTheme.subTitle)),
+                        child: Text('${stringtoRupiah(product.price.toInt())}', style: KopdigTheme.subTitle)),
                   ],
                 ),
               )

@@ -6,7 +6,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:kopdig/core/network/response/auth/LoginResponse.dart';
 import 'package:logger/logger.dart';
 
-const BASE_URL = 'https://dc13-125-166-119-191.ap.ngrok.io';
+const BASE_URL = 'https://511a-125-166-118-227.ap.ngrok.io';
 
 abstract class NetworkService {
   final logger = Logger(printer: PrettyPrinter());
@@ -16,11 +16,7 @@ abstract class NetworkService {
       final response = await http.get(Uri.parse(endPoint), headers: headers);
       var res = json.decode(response.body);
       logger.d(res);
-      if (res["returnValue"] == "000") {
-        return res;
-      } else {
-        throw Exception(res["message"]);
-      }
+      return res;
     } on SocketException {
       throw Exception("Connection Failed");
     }
