@@ -6,7 +6,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:kopdig/core/network/response/auth/LoginResponse.dart';
 import 'package:logger/logger.dart';
 
-const BASE_URL = 'https://511a-125-166-118-227.ap.ngrok.io';
+const BASE_URL = 'https://kopdig.id/api_kopdig';
 
 abstract class NetworkService {
   final logger = Logger(printer: PrettyPrinter());

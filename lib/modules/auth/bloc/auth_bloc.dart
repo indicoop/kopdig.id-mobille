@@ -17,7 +17,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       try {
         var data = await _repository.submitRegister(event.map);
         if (data.data?.code != null && data.data?.code == 200) {
-
           _delegate.onSuccess();
         } else {
           _delegate.onError("Terjadi kesalahan");
